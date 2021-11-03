@@ -22,12 +22,12 @@ syn match       azmHead3        "\s*### .\+"
 syn match       azmHeadN        "\s*####\+ .\+"
 syn match       azmBar          "^\s*---\+$"
 syn match       azmSection      "^\s*\[.\+\]$"
-syn match       azmT3New        "\s*\* ."me=e-1
-syn match       azmT3Pgr        "\s*> ."me=e-1
-syn match       azmT3Done       "\s*- .\+"
-syn match       azmT3Abort      "\s*x ."me=e-1
-syn match       azmT3Pend       "\s*? ."me=e-1
-syn match       azmT3Comment    "\s*=> .\+" contains=azmComment,azmComment2
+syn match       azmT3New        "\s*\* ."me=e-1 contained
+syn match       azmT3Pgr        "\s*> ."me=e-1 contained
+syn match       azmT3Done       "\s*- .\+" contained
+syn match       azmT3Abort      "\s*x ."me=e-1 contained
+syn match       azmT3Pend       "\s*? ."me=e-1 contained
+syn match       azmT3Comment    "\s*=> .\+" contained contains=azmComment,azmComment2
 syn region      azmT3Blk        start="<t3>" end="</t3>" contains=azmT3New,azmT3Pgr,azmT3Done,azmT3Abort,azmT3Pend,azmT3Comment,azmComment,azmComment2 extend
 syn region      azmCodeBlk      start="```" end="```" extend
 syn match       azmBullet1      "^\s*- ."me=e-1
