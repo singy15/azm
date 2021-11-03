@@ -21,9 +21,6 @@ syn match       azmHead2        "\s*## .\+"
 syn match       azmHead3        "\s*### .\+"
 syn match       azmHeadN        "\s*####\+ .\+"
 syn match       azmBar          "^\s*---\+$"
-syn match       azmBullet1      "^\s*- ."me=e-1
-syn match       azmBullet2      "^\s*ÅE."me=e-1
-syn match       azmBullet3      "^\s*[0-9]\+\. ."me=e-1
 syn match       azmSection      "^\s*\[.\+\]$"
 syn match       azmT3New        "\s*\* ."me=e-1
 syn match       azmT3Pgr        "\s*> ."me=e-1
@@ -32,6 +29,9 @@ syn match       azmT3Abort      "\s*x ."me=e-1
 syn match       azmT3Pend       "\s*? ."me=e-1
 syn region      azmT3Blk        start="<t3>" end="</t3>" contains=azmT3New,azmT3Pgr,azmT3Done,azmT3Abort,azmT3Pend extend
 syn region      azmCodeBlk      start="```" end="```" extend
+syn match       azmBullet1      "^\s*- ."me=e-1
+syn match       azmBullet2      "^\s*ÅE."me=e-1
+syn match       azmBullet3      "^\s*[0-9]\+\. ."me=e-1
 
 hi def link azmComment        Comment
 hi def link azmComment2       PreProc
