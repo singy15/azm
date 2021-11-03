@@ -1,0 +1,61 @@
+; vim: set syntax=azm :
+
+; comment
+  ; comment
+
+; TODO FIXME WARN XXX
+  ; TODO FIXME WARN XXX
+
+// comment2
+  // comment2
+
+/* comment block */
+  /*
+    comment block
+  */
+
+// TODO FIXME WARN XXX
+  // TODO FIXME WARN XXX
+
+# head
+  # head
+
+## head2
+  ## head2
+
+### head3
+  ### head3
+
+#### headN
+  #### headN
+
+##### headN
+  ##### headN
+
+--
+---
+-------------------------------------------------------------------------------
+
+- bullet1
+  - bullet1
+
+ÅEbullet2
+  ÅEbullet2
+
+1. bullet3
+  123. bullet3
+
+[section]
+  [section]
+
+<t3>
+  * t1
+    > t2
+    - t3
+    ? t4
+</t3>
+
+```
+code block
+```
+
