@@ -24,10 +24,11 @@ syn match       azmBar          "^\s*---\+$"
 syn match       azmSection      "^\s*\[.\+\]$"
 syn match       azmT3New        "\s*\* ."me=e-1
 syn match       azmT3Pgr        "\s*> ."me=e-1
-syn match       azmT3Done       "\s*- ."me=e-1
+syn match       azmT3Done       "\s*- .\+"
 syn match       azmT3Abort      "\s*x ."me=e-1
 syn match       azmT3Pend       "\s*? ."me=e-1
-syn region      azmT3Blk        start="<t3>" end="</t3>" contains=azmT3New,azmT3Pgr,azmT3Done,azmT3Abort,azmT3Pend extend
+syn match       azmT3Comment    "\s*=> .\+" contains=azmComment,azmComment2
+syn region      azmT3Blk        start="<t3>" end="</t3>" contains=azmT3New,azmT3Pgr,azmT3Done,azmT3Abort,azmT3Pend,azmT3Comment,azmComment,azmComment2 extend
 syn region      azmCodeBlk      start="```" end="```" extend
 syn match       azmBullet1      "^\s*- ."me=e-1
 syn match       azmBullet2      "^\s*ÅE."me=e-1
@@ -48,11 +49,13 @@ hi def link azmBullet1        azmHlBullet1
 hi def link azmBullet2        azmHlBullet2
 hi def link azmBullet3        azmHlBullet3
 hi def link azmSection        azmHlSection
-hi def link azmT3New          azmHlNew
+hi def link azmT3New          azmHlT3New
 hi def link azmT3Pgr          Question
-hi def link azmT3Done         azmHlDone
+hi def link azmT3PgrTitle     azmHlT3PgrTitle
+hi def link azmT3Done         azmHlT3Done
 hi def link azmT3Abort        Special
 hi def link azmT3Pend         Title
+hi def link azmT3Comment      SpecialKey
 hi def link azmT3Blk          azmHlT3Blk
 hi def link azmCodeBlk        azmHlCodeBlk
 
@@ -67,8 +70,8 @@ highlight azmHlBullet3    guifg=#6495ED
 highlight azmHlSection    guifg=#00FF7F
 highlight azmHlT3Blk      guifg=#FFFACD
 highlight azmHlCodeBlk    guifg=#C0C0C0
-highlight azmHlDone       guifg=#C0C0C0
-highlight azmHlNew        guifg=#FF5050
+highlight azmHlT3Done     guifg=#C0C0C0
+highlight azmHlT3New      guifg=#FF5050
 
 let b:current_syntax = "azm"
 
