@@ -7,7 +7,9 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword     azmTodo         contained TODO FIXME
+syntax sync fromstart
+
+syn keyword     azmTodo         contained TODO FIXME NOTE
 syn keyword     azmDang         contained WARN XXX
 syn match       azmComment      "^;.*" contains=azmTodo,azmDang
 syn match       azmComment      "\s;.*"ms=s+1 contains=azmTodo,azmDang
@@ -15,7 +17,7 @@ syn match       azmComment2     "^//.*" contains=azmTodo,azmDang
 syn match       azmComment2     "\s//.*"ms=s+1 contains=azmTodo,azmDang
 syn region      azmString       start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
 syn region      azmString       start=+'+ skip=+\\\\\|\\'+ end=+'+ oneline
-syn region      azmCommentBlk   start="/\*" end="\*/" extend
+syn region      azmCommentBlk   start="/\*" end="\*/" extend contains=azmTodo,azmDang
 syn match       azmHead1        "\s*# .\+"
 syn match       azmHead2        "\s*## .\+"
 syn match       azmHead3        "\s*### .\+"
@@ -33,6 +35,7 @@ syn region      azmCodeBlk      start="```" end="```" extend
 syn match       azmBullet1      "^\s*- ."me=e-1
 syn match       azmBullet2      "^\s*ÅE."me=e-1
 syn match       azmBullet3      "^\s*[0-9]\+\. ."me=e-1
+syn match       azmKey          "^\s*\S\+:\s*"
 
 hi def link azmComment        Comment
 hi def link azmComment2       PreProc
@@ -58,6 +61,7 @@ hi def link azmT3Pend         Title
 hi def link azmT3Comment      SpecialKey
 hi def link azmT3Blk          azmHlT3Blk
 hi def link azmCodeBlk        azmHlCodeBlk
+hi def link azmKey            azmHlKey
 
 highlight azmHlHead1      guifg=#FFD700 gui=standout
 highlight azmHlHead2      guifg=#F0E68C gui=standout
@@ -72,6 +76,7 @@ highlight azmHlT3Blk      guifg=#FFFACD
 highlight azmHlCodeBlk    guifg=#C0C0C0
 highlight azmHlT3Done     guifg=#C0C0C0
 highlight azmHlT3New      guifg=#FF5050
+highlight azmHlKey        guifg=#FFCCFF
 
 let b:current_syntax = "azm"
 
